@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AListSdkSharp", "AListSdkSharp\AListSdkSharp.csproj", "{A77220F2-5E1D-4B08-B142-8EA50E32EF29}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AListSdkSharpDemo", "AListSdkSharpDemo\AListSdkSharpDemo.csproj", "{72F5DDE4-D53F-4928-A11F-C009B9E97D88}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A77220F2-5E1D-4B08-B142-8EA50E32EF29}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A77220F2-5E1D-4B08-B142-8EA50E32EF29}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A77220F2-5E1D-4B08-B142-8EA50E32EF29}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A77220F2-5E1D-4B08-B142-8EA50E32EF29}.Release|Any CPU.Build.0 = Release|Any CPU
+		{72F5DDE4-D53F-4928-A11F-C009B9E97D88}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72F5DDE4-D53F-4928-A11F-C009B9E97D88}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72F5DDE4-D53F-4928-A11F-C009B9E97D88}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72F5DDE4-D53F-4928-A11F-C009B9E97D88}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
