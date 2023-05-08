@@ -22,8 +22,7 @@ namespace AListSdkSharp.Api
         /// <returns></returns>
         public static async Task<ListOutVo> List(string baseUrl, string token, ListInVo listInVo)
         {
-            var res = await $"{baseUrl}/api/fs/list".WithHeaders(new {Authorization = token}).PostJsonAsync(listInVo).ReceiveJson<ListOutVo>();
-            return null;
+            return await $"{baseUrl}/api/fs/list".WithHeaders(new {Authorization = token}).PostJsonAsync(listInVo).ReceiveJson<ListOutVo>();
         }
 
         /// <summary>
