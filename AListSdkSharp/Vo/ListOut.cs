@@ -8,7 +8,7 @@ namespace AListSdkSharp.Vo
     /// <summary>
     /// 列表输出参数
     /// </summary>
-    public class ListOutVo : BaseVo
+    public class ListOut : Base
     {
         /// <summary>
         /// 内容

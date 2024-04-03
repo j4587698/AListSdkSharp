@@ -5,7 +5,7 @@ namespace AListSdkSharp.Vo
     /// <summary>
     /// 列表读取参数
     /// </summary>
-    public class ListInVo
+    public class ListIn
     {
         /// <summary>
         /// 第几页

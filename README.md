@@ -1,8 +1,10 @@
-﻿// See https://aka.ms/new-console-template for more information
+# AListSdkSharp
 
-using AListSdkSharp.Api;
-using AListSdkSharp.Vo;
+AListSdkSharp 是C#的AList SDK访问层，用于访问AList的API。
+使用flurl作为http请求库。
 
+基本用法
+```csharp
 var baseUrl = "Alist服务器地址(https://alist.pages.dev/)";
 var username = "服务器用户名";
 var password = "服务器密码";
@@ -26,5 +28,4 @@ var stream = await fs.Download(c); // 下载文件
 var file = File.Create("文件");
 await stream.CopyToAsync(file);
 file.Close();
-
-Console.ReadKey();
+```

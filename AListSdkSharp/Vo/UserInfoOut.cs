@@ -5,7 +5,7 @@ namespace AListSdkSharp.Vo
     /// <summary>
     /// 用户信息
     /// </summary>
-    public class UserInfoVo : BaseVo
+    public class UserInfoOut : Base
     {
         /// <summary>
         /// 用户信息
@@ -18,36 +18,46 @@ namespace AListSdkSharp.Vo
         public class UserInfoData
         {
             /// <summary>
-            /// 基础路径
-            /// </summary>
-            [JsonPropertyName("base_path")]
-            public string BasePath { get; set; }
-
-            /// <summary>
-            /// 是否禁用
-            /// </summary>
-            public bool Disabled { get; set; }
-
-            /// <summary>
             /// 用户id
             /// </summary>
             public int Id { get; set; }
+            
+            /// <summary>
+            /// 用户名
+            /// </summary>
+            public string Username { get; set; }
 
+            /// <summary>
+            /// 盐
+            /// </summary>
+            public string Salt { get; set; }
+            
             /// <summary>
             /// 用户密码
             /// </summary>
             public string Password { get; set; }
-
+            
             /// <summary>
-            /// 用户权限
+            /// 基础路径
             /// </summary>
-            public int Permission { get; set; }
-
+            [JsonPropertyName("base_path")]
+            public string BasePath { get; set; }
+            
             /// <summary>
             /// 用户角色
             /// </summary>
             public int Role { get; set; }
 
+            /// <summary>
+            /// 是否禁用
+            /// </summary>
+            public bool Disabled { get; set; }
+            
+            /// <summary>
+            /// 用户权限
+            /// </summary>
+            public int Permission { get; set; }
+            
             /// <summary>
             /// 统一登录id
             /// </summary>
@@ -55,9 +65,9 @@ namespace AListSdkSharp.Vo
             public string SsoId { get; set; }
 
             /// <summary>
-            /// 用户名
+            /// 是否需要2FA
             /// </summary>
-            public string Username { get; set; }
+            public bool Otp { get; set; }
         }
     }
 }

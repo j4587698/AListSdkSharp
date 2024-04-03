@@ -3,7 +3,7 @@
     /// <summary>
     /// 登录信息
     /// </summary>
-    public class LoginVo : BaseVo
+    public class Login : Base
     {
         /// <summary>
         /// 登录数据

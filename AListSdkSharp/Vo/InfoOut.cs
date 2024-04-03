@@ -4,7 +4,7 @@ using AListSdkSharp.Enums;
 
 namespace AListSdkSharp.Vo
 {
-    public class InfoVo : BaseVo
+    public class InfoOut : Base
     {
         public InfoData Data { get; set; }
         

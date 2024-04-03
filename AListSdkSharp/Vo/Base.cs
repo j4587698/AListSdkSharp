@@ -3,7 +3,7 @@
     /// <summary>
     /// 基础返回值
     /// </summary>
-    public class BaseVo
+    public class Base
     {
         /// <summary>
         /// 返回码
