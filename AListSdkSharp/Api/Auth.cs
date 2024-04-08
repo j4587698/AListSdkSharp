@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using System.Threading.Tasks;
 using AListSdkSharp.Vo;
 using Flurl.Http;
@@ -16,17 +17,18 @@ namespace AListSdkSharp.Api
         {
             _baseUri = new Uri(baseUrl);
         }
-        
+
         /// <summary>
         /// 登录
         /// </summary>
         /// <param name="username"></param>
         /// <param name="password"></param>
+        /// <param name="cancellationToken"></param>
         /// <returns></returns>
-        public Task<Login> Login(string username, string password)
+        public Task<Login> Login(string username, string password, CancellationToken cancellationToken = default)
         {
             return new Uri(_baseUri, "/api/auth/login")
-                .PostJsonAsync(new { username, password })
+                .PostJsonAsync(new { username, password }, cancellationToken: cancellationToken)
                 .ReceiveJson<Login>();
         }
 
@@ -36,11 +38,12 @@ namespace AListSdkSharp.Api
         /// <param name="username"></param>
         /// <param name="passwordHash"></param>
         /// <param name="optCode"></param>
+        /// <param name="cancellationToken"></param>
         /// <returns></returns>
-        public Task<Login> LoginHash(string username, string passwordHash, string optCode)
+        public Task<Login> LoginHash(string username, string passwordHash, string optCode, CancellationToken cancellationToken = default)
         {
             return new Uri(_baseUri, "/api/auth/login/hash")
-                .PostJsonAsync(new { username, password = passwordHash, otp_code= optCode })
+                .PostJsonAsync(new { username, password = passwordHash, otp_code= optCode }, cancellationToken: cancellationToken)
                 .ReceiveJson<Login>();
         }
 
@@ -48,11 +51,12 @@ namespace AListSdkSharp.Api
         /// 创建2FA认证
         /// </summary>
         /// <param name="token"></param>
-        public Task<FaOut> Generate2FA(string token)
+        /// <param name="cancellationToken"></param>
+        public Task<FaOut> Generate2FA(string token, CancellationToken cancellationToken = default)
         {
             return new Uri(_baseUri, "/api/auth/2fa/generate")
                 .WithHeader("Authorization", token)
-                .PostAsync()
+                .PostAsync(cancellationToken: cancellationToken)
                 .ReceiveJson<FaOut>();
         }
 
@@ -62,12 +66,13 @@ namespace AListSdkSharp.Api
         /// <param name="token"></param>
         /// <param name="code"></param>
         /// <param name="secret"></param>
+        /// <param name="cancellationToken"></param>
         /// <returns></returns>
-        public Task<Base> Verify2FA(string token, string code, string secret)
+        public Task<Base> Verify2FA(string token, string code, string secret, CancellationToken cancellationToken = default)
         {
             return new Uri(_baseUri, "/api/auth/2fa/verify")
                 .WithHeader("Authorization", token)
-                .PostJsonAsync(new { code, secret })
+                .PostJsonAsync(new { code, secret }, cancellationToken: cancellationToken)
                 .ReceiveJson<Base>();
         }
 
@@ -75,12 +80,13 @@ namespace AListSdkSharp.Api
         /// 获取用户信息
         /// </summary>
         /// <param name="token"></param>
+        /// <param name="cancellationToken"></param>
         /// <returns></returns>
-        public Task<UserInfoOut> GetUserInfo(string token)
+        public Task<UserInfoOut> GetUserInfo(string token, CancellationToken cancellationToken = default)
         {
             return new Uri(_baseUri, "/api/me")
                 .WithHeader("Authorization", token)
-                .GetAsync()
+                .GetAsync(cancellationToken: cancellationToken)
                 .ReceiveJson<UserInfoOut>();
         }
     }
