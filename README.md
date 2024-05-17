@@ -3,6 +3,10 @@
 AListSdkSharp 是C#的AList SDK访问层，用于访问AList的API。
 使用flurl作为http请求库。
 
+version 1.1.2:
+
+RangeDownload改为ResponseHeadersRead，防止大量预下载
+
 version 1.1:
 
 本次更新较大，删除了以前的用法，更新为新用法，现在使用更加简单。

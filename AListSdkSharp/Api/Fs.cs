@@ -329,7 +329,7 @@ namespace AListSdkSharp.Api
 
             var response = await rawUrl
                 .WithHeader("Range", $"bytes={position}-{position + count - 1}")
-                .GetAsync(cancellationToken: cancellationToken);
+                .GetAsync(HttpCompletionOption.ResponseHeadersRead, cancellationToken: cancellationToken);
 
             if (response.StatusCode != 206)
             {
