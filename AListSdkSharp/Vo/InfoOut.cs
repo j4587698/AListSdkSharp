@@ -24,8 +24,6 @@ namespace AListSdkSharp.Vo
 
             public string Readme { get; set; }
 
-            public string Related { get; set; }
-
             public string Sign { get; set; }
 
             public long Size { get; set; }
