@@ -282,15 +282,17 @@ namespace AListSdkSharp.Api
         /// </summary>
         /// <param name="rawUrl"></param>
         /// <param name="cancellationToken"></param>
+        /// <param name="headers"></param>
         /// <returns></returns>
         /// <exception cref="Exception"></exception>
-        public Task<Stream> Download(string rawUrl, CancellationToken cancellationToken = default)
+        public Task<Stream> Download(string rawUrl, CancellationToken cancellationToken = default, params (string key, string value)[] headers)
         {
             if (rawUrl == null)
             {
                 throw new Exception("raw url is null");
             }
-            return rawUrl.GetStreamAsync(cancellationToken: cancellationToken);
+            var request = rawUrl.WithHeaders(headers);
+            return request.GetStreamAsync(cancellationToken: cancellationToken);
         }
 
         /// <summary>
@@ -298,18 +300,19 @@ namespace AListSdkSharp.Api
         /// </summary>
         /// <param name="infoOut"></param>
         /// <param name="cancellationToken"></param>
+        /// <param name="headers"></param>
         /// <returns></returns>
         /// <exception cref="Exception"></exception>
-        public Task<Stream> Download(InfoOut infoOut, CancellationToken cancellationToken = default)
+        public Task<Stream> Download(InfoOut infoOut, CancellationToken cancellationToken = default, params (string key, string value)[] headers)
         {
             if (infoOut.Code != 200)
             {
                 throw new Exception(infoOut.Message);
             }
 
-            return Download(infoOut.Data.RawUrl, cancellationToken);
+            return Download(infoOut.Data.RawUrl, cancellationToken, headers);
         }
-        
+
         /// <summary>
         /// 分段下载
         /// </summary>
@@ -317,17 +320,19 @@ namespace AListSdkSharp.Api
         /// <param name="position"></param>
         /// <param name="count"></param>
         /// <param name="cancellationToken"></param>
+        /// <param name="headers"></param>
         /// <returns></returns>
         /// <exception cref="Exception"></exception>
         /// <exception cref="InvalidOperationException"></exception>
-        public async Task<Stream> RangeDownload(string rawUrl, long position, long count, CancellationToken cancellationToken = default)
+        public async Task<Stream> RangeDownload(string rawUrl, long position, long count, 
+            CancellationToken cancellationToken = default, params (string key, string value)[] headers)
         {
             if (rawUrl == null)
             {
                 throw new Exception("raw url is null");
             }
 
-            var response = await rawUrl
+            var response = await rawUrl.WithHeaders(headers)
                 .WithHeader("Range", $"bytes={position}-{position + count - 1}")
                 .GetAsync(HttpCompletionOption.ResponseHeadersRead, cancellationToken: cancellationToken);
 
