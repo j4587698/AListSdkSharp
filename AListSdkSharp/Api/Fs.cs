@@ -43,11 +43,14 @@ namespace AListSdkSharp.Api
         /// <param name="token"></param>
         /// <param name="listIn"></param>
         /// <param name="cancellationToken"></param>
+        /// <param name="headers"></param>
         /// <returns></returns>
-        public Task<InfoOut> Info(string token, ListIn listIn, CancellationToken cancellationToken = default)
+        public Task<InfoOut> Info(string token, ListIn listIn, CancellationToken cancellationToken = default
+            , params (string key, string value)[] headers)
         {
             return new Uri(_baseUri, "/api/fs/get")
                 .WithHeader("Authorization", token)
+                .WithHeaders(headers)
                 .PostJsonAsync(listIn, cancellationToken: cancellationToken)
                 .ReceiveJson<InfoOut>();
         }
