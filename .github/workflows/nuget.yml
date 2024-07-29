@@ -1,9 +1,8 @@
 name: publish to nuget
 
 on:
-  push:
-    tags:
-    - 'v*'
+  pull_request:
+    branches: ["master"]
 
 jobs:
   build:
@@ -21,7 +20,7 @@ jobs:
     - name: Build
       run: dotnet build --no-restore
     - name: Publish AListSdkSharp
-      uses: alirezanet/publish-nuget@v3.0.4
+      uses: tedd/publish-nuget-neo@v1
       with:
         PROJECT_FILE_PATH: AListSdkSharp/AListSdkSharp.csproj
         VERSION_REGEX: ^\s*<Version>(.*)<\/Version>\s*$
