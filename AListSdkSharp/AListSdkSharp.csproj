@@ -6,11 +6,17 @@
         <Description>AList .Net Sdk</Description>
         <PackageProjectUrl>https://github.com/j4587698/AListSdkSharp</PackageProjectUrl>
         <RepositoryUrl>https://github.com/j4587698/AListSdkSharp</RepositoryUrl>
-        <Version>1.1.5</Version>
+        <Version>1.1.3</Version>
     </PropertyGroup>
 
     <ItemGroup>
       <PackageReference Include="Flurl.Http" Version="4.0.2" />
     </ItemGroup>
-
+    
+    <ItemGroup>
+        <None Include="README.md">
+            <Pack>true</Pack>
+            <PackagePath>\</PackagePath>
+        </None>
+    </ItemGroup>
 </Project>

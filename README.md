@@ -55,4 +55,10 @@ var file = File.Create("文件");
 await stream.CopyToAsync(file);
 file.Close();
 
+// 存储相关
+var storage = new Storage(baseUrl); // 创建一个Storage对象
+var b = await storage.List(token); // 获取文件列表
+var d = await storage.Disable(token, 2); // 禁用指定id的存储
+var c = await storage.Enable(token, 2); // 启用指定id的存储
+
 ```
