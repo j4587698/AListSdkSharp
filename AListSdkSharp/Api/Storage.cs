@@ -29,5 +29,13 @@ namespace AListSdkSharp.Api
                 .PostAsync(cancellationToken: cancellationToken)
                 .ReceiveJson<Base>();
         }
+        
+        public Task<Base> Disable(string token, int id, CancellationToken cancellationToken = default)
+        {
+            return new Uri(_baseUri, $"/api/admin/storage/disable?id={id}")
+                .WithHeader("Authorization", token)
+                .PostAsync(cancellationToken: cancellationToken)
+                .ReceiveJson<Base>();
+        }
     }
 }
