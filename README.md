@@ -5,6 +5,9 @@ AListSdkSharp 是C#的AList SDK访问层，用于访问AList的API。
 
 # 更新日志
 
+version 1.2.0:
+增加了Storage相关的操作，包括获取存储列表，禁用存储，启用存储
+
 version 1.1.5:
 Info支持headers参数，用于115网盘的分享
 
