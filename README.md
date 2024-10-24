@@ -65,3 +65,6 @@ var d = await storage.Disable(token, 2); // 禁用指定id的存储
 var c = await storage.Enable(token, 2); // 启用指定id的存储
 
 ```
+## 开源协议
+
+[![license](https://img.shields.io/github/license/j4587698/AListSdkSharp)](https://github.com/j4587698/AListSdkSharp/blob/master/LICENSE)
