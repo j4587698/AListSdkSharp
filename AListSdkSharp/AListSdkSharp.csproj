@@ -6,7 +6,10 @@
         <Description>AList .Net Sdk</Description>
         <PackageProjectUrl>https://github.com/j4587698/AListSdkSharp</PackageProjectUrl>
         <RepositoryUrl>https://github.com/j4587698/AListSdkSharp</RepositoryUrl>
-        <Version>1.2.0</Version>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <PackageTags>alist</PackageTags>
+        <Version>1.2.1</Version>
     </PropertyGroup>
 
     <ItemGroup>
@@ -14,7 +17,7 @@
     </ItemGroup>
     
     <ItemGroup>
-        <None Include="../README.md">
+        <None Include="..\README.md">
             <Pack>true</Pack>
             <PackagePath>\</PackagePath>
         </None>
